@@ -1,14 +1,12 @@
 /**
  *  Firebase Firestore 와의 상호작용예시를 다룬 스크립트
- *
  */
-
-
 import {collection, getDocs, addDoc, setDoc, doc} from "firebase/firestore";
 import {FBInit} from "./FBInit";
 import {getFirestore} from 'firebase/firestore'
 import {useState} from "react";
 import {ConvertJsonToRoom, Room, RoomConverter} from "../../Classes/Room";
+
 
 export const GetSnapshot = () => {
     const [message, setMessage] = useState("");
@@ -31,6 +29,7 @@ export const GetSnapshot = () => {
         <button onClick={querySnapshot}>데이터 받아오기</button>
     </>)
 };
+
 export const AddData = () => {
     const uploadData = () => {
         const app = FBInit().app;
@@ -68,6 +67,7 @@ export const AddData2 = () => {
     </>)
 
 }
+
 export const GetRooms = () => {
     const getRooms = () => {
         const app = FBInit().app;
@@ -85,6 +85,7 @@ export const GetRooms = () => {
         <button onClick={getRooms}>방 찾기</button>
     </>)
 }
+
 export const AddRoom = () => {
     const uploadData = () => {
         const app = FBInit().app;

@@ -1,4 +1,5 @@
 export const MainPageItem = ({room}) => {
+    console.log(room.name);
     const renderFacilities = (facility) => {
         if (facility == null)
             return (<></>)
@@ -27,36 +28,61 @@ export const MainPageItem = ({room}) => {
                 }
             ))
     }
+    //
+    const renderOneImg = (images) => {
+        console.log(images[0]);
+        if(images == null)
+            return (<></>)
+        
+        return (
+          <img src={images[0]} width={250} height={200}/>
+        )
+        
+    }
+    //
+    
+    const onClickRoomItem = (rooms, idx) => {
+        return(
+            <>
+                </>
+        )
+    }
+    
+    //
     if (room == null)
         return (<></>)
     return (
         <>
-            <div><h1>{room.id}</h1></div>
-            <div>
-            </div>
-            <div className={"images"}>{
-                renderImage(room.images)
-            }</div>
-            <div><h2>{room.name}</h2></div>
-            <div>
-                <ul><h3>설명 : {room.description}</h3></ul>
-            </div>
-            <div className={"facility"}>
-                <p><h2>시설</h2></p>
-                {renderFacilities(room.facility)
-                }</div>
+        <div class='room-container' onClick={onClickRoomItem}>
+        <div class='room-info'>
+       {renderOneImg(room.images)}
+            <h4 className='room-name'>{room.name}</h4>
+       
+        </div>
+        </div>
         </>
     )
+   // <div>{renderImage(room.images)}</div>   
 }
-
+//
+export const ShowList = ({objs}) => {
+    if (objs.length == 0)
+        return (<></>)
+        console.log(objs);
+    return (<>
+       {objs.map(
+        (item, i)=>{
+            return <MainPageItem room={item} key={i}/>
+        }
+        )}
+    </>)
+}
+//
 export const ItemGroup = ({objs, idx}) => {
     if (objs.length == 0)
         return (<></>)
     return (<>
         {
-            // objs.map(
-            //     (item, idx) => <MainPageItem room={item} key={idx}/>
-            // )
             <MainPageItem room={objs[idx]}/>
         }
     </>)

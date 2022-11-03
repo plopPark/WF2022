@@ -3,17 +3,27 @@ import './App.css';
 import {GetSnapshot, AddData, AddData2, GetRooms, AddRoom, ImportJsonButton} from './Modules/Firebase/UsefulButtons'
 import {MainPage} from "./Modules/UI/MainPage/MainPage";
 
-function App() {
 
-    return (
-        <>
+function App() {
+  
+    /*
+    <>
+     <GetSnapshot/>
+           <GetRooms/>
+
+            <div className='app-container'>
             <MainPage/>
-            <GetSnapshot/>
-            <GetRooms/>
-        </>
-        
-    )
-        ;
+           
+         </div>
+         </>
+    */
+   return (
+    <>
+    <div className='app-container'>
+    <MainPage/>
+   </div>
+   </>      
+    );
 }
 
 export default App;

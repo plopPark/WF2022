@@ -1,4 +1,4 @@
-import {ItemGroup, MainPageItem} from "./MainPageItem";
+import {ItemGroup, MainPageItem, ShowList} from "./MainPageItem";
 import {FBInit} from "../../Firebase/FBInit";
 import {collection, getDocs, getFirestore} from "firebase/firestore";
 import {ConvertJsonToRoom} from "../../../Classes/Room";
@@ -25,9 +25,12 @@ export const MainPage = () => {
     const next = ()=>setIdx((idx + 1)%rooms.length)
     const prev = ()=>setIdx((idx - 1)%rooms.length)
     return (<>
-
-        <button onClick={prev}>이전</button>
-        <button onClick={next}>다음</button>
-            <ItemGroup objs={rooms} idx={idx}/>
+        <ShowList objs={rooms}/>   
     </>)
+    /*
+    <ShowList objs={rooms}/>    
+    <button onClick={prev}>이전</button>
+    <button onClick={next}>다음</button>
+    <ItemGroup objs={rooms} idx={idx}/>
+    */
 }
